@@ -1,0 +1,73 @@
+﻿@model SistemaEspaco.Models.Reserva
+
+@{
+    ViewData["Title"] = "Detalhes da Reserva";
+}
+
+<h1 class="text-center text-white font-extrabold text-4xl mb-6">
+    Detalhes da Reserva
+</h1>
+
+<div class="container mx-auto px-4">
+    <div class="flex justify-center">
+        <div class="w-full max-w-2xl">
+
+            <div class="bg-[rgba(20,20,40,0.55)] backdrop-blur-xl rounded-2xl p-8 shadow-2xl text-white">
+
+                <h2 class="text-center text-purple-200 text-2xl font-semibold mb-4">
+                    Informações
+                </h2>
+
+                <hr class="border-purple-500/40 mb-6" />
+
+                <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-4">
+
+                    <div>
+                        <dt class="font-semibold text-purple-200">Data de Início:</dt>
+                        <dd class="text-white">
+                            @Model.DataInicio.ToString("dd/MM/yyyy HH:mm")
+                        </dd>
+                    </div>
+
+                    <div>
+                        <dt class="font-semibold text-purple-200">Data de Fim:</dt>
+                        <dd class="text-white">
+                            @Model.DataFim.ToString("dd/MM/yyyy HH:mm")
+                        </dd>
+                    </div>
+
+                    <div>
+                        <dt class="font-semibold text-purple-200">Situação:</dt>
+                        <dd class="text-white">
+                            @Model.Situacao
+                        </dd>
+                    </div>
+
+                    <div>
+                        <dt class="font-semibold text-purple-200">Espaço:</dt>
+                        <dd class="text-white">
+                            @Model.IdEspacoNavigation?.Nome
+                        </dd>
+                    </div>
+
+                    <div>
+                        <dt class="font-semibold text-purple-200">Usuário:</dt>
+                        <dd class="text-white">
+                            @Model.IdUsuarioNavigation?.Nome
+                        </dd>
+                    </div>
+
+                </dl>
+
+                <div class="text-center mt-8">
+                    <a asp-action="Index"
+                       class="inline-block border border-purple-500 text-purple-300 hover:bg-purple-500 hover:text-white px-6 py-3 rounded-xl transition font-semibold">
+                        Voltar para a Lista
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

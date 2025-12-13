@@ -1,0 +1,53 @@
+﻿@model SistemaEspaco.Models.Espaco
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+    body {
+        background-attachment: fixed;
+        min-height: 100vh;
+        color: white;
+    }
+</style>
+
+<h1 class="text-center text-white font-bold text-3xl mt-6">
+    Detalhes do Espaço
+</h1>
+
+<div class="container mx-auto mt-8">
+    <div class="flex justify-center">
+        <div class="w-full max-w-lg">
+
+            <div class="bg-[rgba(20,20,40,0.55)] backdrop-blur-xl shadow-2xl p-8 rounded-2xl">
+
+                <h4 class="text-center text-white font-bold text-xl mb-3">Informações</h4>
+
+                <hr class="border-gray-400 mb-6" />
+
+                <dl class="grid grid-cols-3 gap-y-4 text-white">
+
+                    <dt class="font-semibold text-blue-200 col-span-1">Nome:</dt>
+                    <dd class="col-span-2">@Html.DisplayFor(model => model.Nome)</dd>
+
+                    <dt class="font-semibold text-blue-200 col-span-1">Descrição:</dt>
+                    <dd class="col-span-2">@Html.DisplayFor(model => model.Descricao)</dd>
+
+                    <dt class="font-semibold text-blue-200 col-span-1">Capacidade:</dt>
+                    <dd class="col-span-2">@Html.DisplayFor(model => model.Capacidade)</dd>
+
+                </dl>
+
+                <div class="text-center mt-6">
+                    <a asp-action="Index"
+                       class="border border-white text-white px-4 py-2 rounded-xl font-medium transition hover:bg-white hover:text-black hover:shadow-lg">
+                        Voltar para a Lista
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

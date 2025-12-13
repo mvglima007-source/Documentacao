@@ -1,0 +1,70 @@
+﻿@model SistemaEspaco.Models.Reserva
+
+@{
+    ViewData["Title"] = "Excluir Reserva";
+}
+
+<h1 class="text-center text-red-400 font-extrabold text-4xl mb-6">
+    Excluir Reserva
+</h1>
+
+<p class="text-center text-white text-lg mb-6">
+    Tem certeza que deseja excluir esta reserva?
+</p>
+
+<div class="container mx-auto px-4">
+    <div class="flex justify-center">
+        <div class="w-full max-w-2xl">
+
+            <div class="bg-[rgba(20,20,40,0.55)] backdrop-blur-xl rounded-2xl p-8 shadow-2xl text-white">
+
+                <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-4">
+
+                    <div>
+                        <dt class="font-semibold text-purple-200">Data de Início:</dt>
+                        <dd class="text-white">@Model.DataInicio.ToString("dd/MM/yyyy HH:mm")</dd>
+                    </div>
+
+                    <div>
+                        <dt class="font-semibold text-purple-200">Data de Fim:</dt>
+                        <dd class="text-white">@Model.DataFim.ToString("dd/MM/yyyy HH:mm")</dd>
+                    </div>
+
+                    <div>
+                        <dt class="font-semibold text-purple-200">Situação:</dt>
+                        <dd class="text-white">@Model.Situacao</dd>
+                    </div>
+
+                    <div>
+                        <dt class="font-semibold text-purple-200">Espaço:</dt>
+                        <dd class="text-white">@Model.IdEspacoNavigation?.Nome</dd>
+                    </div>
+
+                    <div>
+                        <dt class="font-semibold text-purple-200">Usuário:</dt>
+                        <dd class="text-white">@Model.IdUsuarioNavigation?.Nome</dd>
+                    </div>
+
+                </dl>
+
+                <form asp-action="Delete" class="mt-8 space-y-4 text-center">
+                    <input type="hidden" asp-for="IdReserva" />
+
+
+                    <button type="submit"
+                            class="w-full bg-red-600 text-white px-6 py-3 rounded-xl font-bold text-lg hover:bg-red-700 hover:shadow-red-500/40 hover:shadow-xl transition">
+                        Excluir Reserva
+                    </button>
+
+              
+                    <a asp-action="Index"
+                       class="inline-block border border-purple-500 text-purple-300 hover:bg-purple-500 hover:text-white px-6 py-3 rounded-xl transition font-semibold">
+                        Voltar para Lista
+                    </a>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>

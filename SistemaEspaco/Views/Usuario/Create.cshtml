@@ -1,0 +1,61 @@
+﻿@model SistemaEspaco.Models.Usuario
+
+@{
+    ViewData["Title"] = "Cadastrar Usuário";
+}
+
+<div class="min-h-screen flex items-center justify-center p-4 text-white"
+     style="background-image: url('/img/fundo.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+
+    <div class="bg-white/10 backdrop-blur-xl shadow-2xl rounded-2xl p-10 w-full max-w-md border border-white/20">
+
+        <h2 class="text-center text-3xl font-bold mb-8">Cadastrar Usuário</h2>
+
+        <form asp-action="Create" method="post" class="space-y-5">
+
+            <div asp-validation-summary="ModelOnly" class="text-red-400 mb-3"></div>
+
+            <div>
+                <label asp-for="Nome" class="font-semibold mb-1 block"></label>
+                <input asp-for="Nome"
+                       class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition" />
+                <span asp-validation-for="Nome" class="text-red-400"></span>
+            </div>
+
+            <div>
+                <label asp-for="Email" class="font-semibold mb-1 block"></label>
+                <input asp-for="Email"
+                       class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition" />
+                <span asp-validation-for="Email" class="text-red-400"></span>
+            </div>
+
+
+            <div>
+                <label asp-for="Telefone" class="font-semibold mb-1 block"></label>
+                <input asp-for="Telefone"
+                       class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition" />
+                <span asp-validation-for="Telefone" class="text-red-400"></span>
+            </div>
+
+            <button type="submit"
+                    class="w-full py-3 font-bold rounded-xl border border-purple-400 text-purple-300 hover:bg-purple-500/20 hover:border-purple-300 hover:text-purple-100 transition">
+                Cadastrar
+            </button>
+
+        </form>
+
+        <div class="text-center mt-6">
+            <a asp-action="Index"
+               class="inline-block px-6 py-2 rounded-xl border border-sky-400 text-sky-300 hover:bg-sky-500/20 hover:text-sky-100 hover:border-sky-300 transition">
+                Voltar para a Lista
+            </a>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+@{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

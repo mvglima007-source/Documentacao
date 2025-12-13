@@ -1,0 +1,73 @@
+﻿@model SistemaEspaco.Models.Espaco
+
+@{
+    ViewData["Title"] = "Criar Espaço";
+}
+
+<div class="min-h-screen bg-cover bg-center bg-fixed"
+     style="background-image: url('@Url.Content("~/img/fundo.png")')">
+
+    <div class="flex items-center justify-center min-h-screen bg-black/40 backdrop-blur-sm px-4">
+        <div class="w-full max-w-lg bg-white/10 backdrop-blur-xl shadow-2xl rounded-2xl p-8 border border-white/20">
+
+            <h1 class="text-3xl font-bold text-center text-white mb-6 drop-shadow-lg">
+                Criar Espaço
+            </h1>
+
+            <form asp-action="Create" class="space-y-5">
+
+                <div asp-validation-summary="ModelOnly" class="text-red-400 text-sm"></div>
+
+                <div>
+                    <label asp-for="Nome" class="text-white font-medium"></label>
+                    <input asp-for="Nome"
+                           class="w-full mt-1 px-4 py-2 bg-white/10 text-white rounded-xl
+                                  border border-white/30 focus:outline-none focus:ring-2
+                                  focus:ring-cyan-400 focus:border-cyan-400 transition-all" />
+                    <span asp-validation-for="Nome" class="text-red-400 text-sm"></span>
+                </div>
+
+                <div>
+                    <label asp-for="Descricao" class="text-white font-medium"></label>
+                    <input asp-for="Descricao"
+                           class="w-full mt-1 px-4 py-2 bg-white/10 text-white rounded-xl
+                                  border border-white/30 focus:outline-none focus:ring-2
+                                  focus:ring-cyan-400 focus:border-cyan-400 transition-all" />
+                    <span asp-validation-for="Descricao" class="text-red-400 text-sm"></span>
+                </div>
+
+                <div>
+                    <label asp-for="Capacidade" class="text-white font-medium"></label>
+                    <input asp-for="Capacidade"
+                           class="w-full mt-1 px-4 py-2 bg-white/10 text-white rounded-xl
+                                  border border-white/30 focus:outline-none focus:ring-2
+                                  focus:ring-cyan-400 focus:border-cyan-400 transition-all" />
+                    <span asp-validation-for="Capacidade" class="text-red-400 text-sm"></span>
+                </div>
+
+                <button type="submit"
+                        class="w-full mt-4 py-3 rounded-xl font-semibold text-lg
+                               bg-cyan-400 text-gray-900 shadow-lg shadow-cyan-500/40
+                               hover:bg-cyan-300 hover:shadow-cyan-300/40
+                               transform hover:-translate-y-1 transition-all">
+                    Criar Espaço
+                </button>
+
+            </form>
+
+            <div class="text-center mt-6">
+                <a asp-action="Index"
+                   class="text-white/80 hover:text-white underline transition">
+                    Voltar para a Lista
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+@{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

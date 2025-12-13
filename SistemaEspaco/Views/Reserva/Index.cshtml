@@ -1,0 +1,152 @@
+﻿@model IEnumerable<SistemaEspaco.Models.Reserva>
+
+@{
+    ViewData["Title"] = "Reservas";
+}
+
+<style>
+    body {
+        background-attachment: fixed;
+        min-height: 100vh;
+        color: white;
+    }
+
+    #tabela th,
+    #tabela td {
+        white-space: nowrap;
+
+    }
+    table tr:hover {
+        background-color: transparent !important;
+    }
+</style>
+
+<h1 class="mb-6 text-center text-4xl font-bold text-white drop-shadow-lg">
+    Lista de Reservas
+</h1>
+
+<div class="container mx-auto px-4">
+    <div class="flex justify-center">
+        <div class="w-full max-w-5xl">
+
+            <div class="bg-[rgba(20,20,40,0.55)] backdrop-blur-xl shadow-2xl rounded-2xl p-8 border border-white/10">
+
+
+                <div class="overflow-x-auto rounded-xl">
+
+                    <table id="tabela" class="w-full text-left rounded-xl">
+                        <thead class="bg-white/20 backdrop-blur-sm">
+                            <tr>
+                                <th class="p-3 text-purple-200 font-semibold">Data de Início</th>
+                                <th class="p-3 text-purple-200 font-semibold">Data de Fim</th>
+                                <th class="p-3 text-purple-200 font-semibold">Situação</th>
+                                <th class="p-3 text-purple-200 font-semibold">Espaço</th>
+                                <th class="p-3 text-purple-200 font-semibold">Usuário</th>
+                                <th class="p-3 text-center text-purple-200 font-semibold">Ações</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @if (Model != null && Model.Any())
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr class="bg-white/10 border-b border-white/10 hover:bg-cyan-500/20 transition transform hover:scale-[1.01]">
+
+                                        <td class="p-3">@item.DataInicio.ToString("dd/MM/yyyy HH:mm")</td>
+                                        <td class="p-3">@item.DataFim.ToString("dd/MM/yyyy HH:mm")</td>
+                                        <td class="p-3">
+                                            @if (item.Situacao == "Ativa")
+                                            {
+                                                <span class="px-3 py-1 rounded-full text-sm font-bold
+                                 bg-green-500/20 text-green-400 border border-green-500">
+                                                    Ativa
+                                                </span>
+                                            }
+                                            else if (item.Situacao == "Finalizada")
+                                            {
+                                                <span class="px-3 py-1 rounded-full text-sm font-bold
+                                 bg-red-500/20 text-red-400 border border-red-500">
+                                                    Finalizada
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="px-3 py-1 rounded-full text-sm font-bold
+                                 bg-gray-500/20 text-gray-300 border border-gray-500">
+                                                    @item.Situacao
+                                                </span>
+                                            }
+                                        </td>
+
+                                        <td class="p-3">@item.IdEspacoNavigation?.Nome</td>
+                                        <td class="p-3">@item.IdUsuarioNavigation?.Nome</td>
+
+
+                                        <td class="p-3 flex justify-end gap-2">
+
+                                            <a asp-action="Details" asp-route-id="@item.IdReserva"
+                                               class="px-4 py-2 rounded-lg font-semibold
+                                                              border border-[#8a4cff] text-[#8a4cff]
+                                                              hover:bg-[#8a4cff] hover:text-white
+                                                              hover:shadow-[0_0_10px_#a46bff]
+                                                              transition">
+                                                Detalhes
+                                            </a>
+
+                                            <a asp-action="Edit" asp-route-id="@item.IdReserva"
+                                               class="px-4 py-2 rounded-lg font-semibold
+                                                              border border-[#8a4cff] text-[#8a4cff]
+                                                              hover:bg-[#8a4cff] hover:text-white
+                                                              hover:shadow-[0_0_10px_#a46bff]
+                                                              transition">
+                                                Editar
+                                            </a>
+
+                                            <a asp-action="Delete" asp-route-id="@item.IdReserva"
+                                               class="px-4 py-2 rounded-lg font-semibold
+                                                              border border-red-500 text-red-400
+                                                              hover:bg-red-500 hover:text-white
+                                                              hover:shadow-[0_0_10px_#ff5c5c]
+                                                              transition">
+                                                Excluir
+                                            </a>
+
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="6"
+                                        class="text-center p-4 text-gray-300 italic">
+                                        Nenhuma reserva cadastrada.
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="text-center mt-6">
+                    <a asp-action="Create"
+                       class="px-5 py-3 rounded-xl font-bold
+                              border border-purple-400 text-purple-300
+                              hover:bg-purple-500 hover:text-white
+                              hover:shadow-[0_0_12px_#b076ff]
+                              transition">
+                        Criar Nova Reserva
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+}

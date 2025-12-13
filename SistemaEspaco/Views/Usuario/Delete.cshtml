@@ -1,0 +1,60 @@
+﻿@model SistemaEspaco.Models.Usuario
+
+@{
+    ViewData["Title"] = "Excluir Usuário";
+}
+
+<div class="min-h-screen flex items-center justify-center p-6 text-white"
+     style="background-image: url('/img/fundo.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+
+    <div class="bg-white/10 backdrop-blur-xl shadow-2xl rounded-2xl p-10 w-full max-w-lg border border-white/20">
+
+        <h2 class="text-center text-3xl font-bold text-red-400 mb-6">Excluir Usuário</h2>
+
+        <p class="text-center text-lg text-white/80 mb-6">
+            Tem certeza que deseja excluir este usuário?
+        </p>
+
+        <hr class="border-white/20 mb-6" />
+
+        <dl class="space-y-4">
+
+            <div class="flex">
+                <dt class="w-32 text-purple-200 font-semibold">Nome:</dt>
+                <dd class="flex-1">@Html.DisplayFor(model => model.Nome)</dd>
+            </div>
+
+            <div class="flex">
+                <dt class="w-32 text-purple-200 font-semibold">Email:</dt>
+                <dd class="flex-1">@Html.DisplayFor(model => model.Email)</dd>
+            </div>
+
+            <div class="flex">
+                <dt class="w-32 text-purple-200 font-semibold">Telefone:</dt>
+                <dd class="flex-1">@Html.DisplayFor(model => model.Telefone)</dd>
+            </div>
+
+        </dl>
+
+        <form asp-action="Delete" method="post" class="mt-8 space-y-4">
+
+            <input type="hidden" asp-for="IdUsuario" />
+
+
+            <button type="submit"
+                    class="w-full py-3 rounded-xl font-semibold border border-red-400 text-red-300
+                           hover:bg-red-500/20 hover:border-red-300 hover:text-red-100 transition">
+                Excluir
+            </button>
+
+            <a asp-action="Index"
+               class="block w-full text-center py-3 rounded-xl font-semibold border border-sky-400 text-sky-300
+                      hover:bg-sky-500/20 hover:text-sky-100 hover:border-sky-300 transition">
+                Voltar para Lista
+            </a>
+
+        </form>
+
+    </div>
+
+</div>

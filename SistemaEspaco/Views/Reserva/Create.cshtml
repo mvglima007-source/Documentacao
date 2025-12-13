@@ -1,0 +1,79 @@
+﻿@model SistemaEspaco.Models.Reserva
+
+@{
+    ViewData["Title"] = "Criar Reserva";
+}
+
+<h1 class="text-center text-white font-extrabold text-4xl mb-8">Criar Reserva</h1>
+
+<div class="container mx-auto px-4">
+    <div class="flex justify-center">
+        <div class="w-full max-w-xl">
+
+            <div class="bg-[rgba(20,20,40,0.55)] backdrop-blur-xl rounded-2xl p-8 shadow-2xl text-white">
+
+                <form asp-action="Create" method="post" class="space-y-5">
+
+                    <div asp-validation-summary="ModelOnly"
+                         class="text-red-400 text-sm mb-4"></div>
+
+              
+                    <div>
+                        <label asp-for="DataInicio" class="block mb-1 text-purple-200 font-semibold"></label>
+                        <input asp-for="DataInicio"
+                               class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-2 text-white focus:bg-black/20 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400 transition" />
+                        <span asp-validation-for="DataInicio" class="text-red-400 text-sm"></span>
+                    </div>
+
+          
+                    <div>
+                        <label asp-for="DataFim" class="block mb-1 text-purple-200 font-semibold"></label>
+                        <input asp-for="DataFim"
+                               class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-2 text-white focus:bg-black/20 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400 transition" />
+                        <span asp-validation-for="DataFim" class="text-red-400 text-sm"></span>
+                    </div>
+
+         
+                    <div>
+                       
+                        <span asp-validation-for="Situacao" class="text-red-400 text-sm"></span>
+                    </div>
+
+           
+                    <div>
+                        <label asp-for="IdEspaco" class="block mb-1 text-purple-200 font-semibold"></label>
+                        <select asp-for="IdEspaco" asp-items="ViewBag.IdEspaco"
+                                class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-2 text-white focus:bg-black/20 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400 transition">
+                        </select>
+                        <span asp-validation-for="IdEspaco" class="text-red-400 text-sm"></span>
+                    </div>
+
+    
+                    <div>
+                        <label asp-for="IdUsuario" class="block mb-1 text-purple-200 font-semibold"></label>
+                        <select asp-for="IdUsuario" asp-items="ViewBag.IdUsuario"
+                                class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-2 text-white focus:bg-black/20 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400 transition">
+                        </select>
+                        <span asp-validation-for="IdUsuario" class="text-red-400 text-sm"></span>
+                    </div>
+
+       
+                    <button type="submit"
+                            class="w-full border border-purple-500 text-purple-300 hover:bg-purple-500 hover:text-white px-6 py-3 rounded-xl transition font-bold text-lg">
+                        Salvar Reserva
+                    </button>
+
+                </form>
+
+
+                <div class="text-center mt-6">
+                    <a asp-action="Index"
+                       class="border border-purple-500 text-purple-300 hover:bg-purple-500 hover:text-white px-6 py-2 rounded-xl transition font-semibold">
+                        Voltar para a Lista
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
