@@ -24,6 +24,9 @@ namespace SistemaEspaco.Models
         [Display(Name = "Situação")]
         public string? Situacao { get; set; }
 
+        public decimal ValorTotal { get; set; }
+
+
         [Display(Name = "Espaço")]
         public virtual Espaco? IdEspacoNavigation { get; set; }
 

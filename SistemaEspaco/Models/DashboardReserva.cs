@@ -8,5 +8,7 @@ namespace SistemaEspaco.Models.ViewModels
         public int TotalReservas { get; set; }
         public int ReservasAtivas { get; set; }
         public int ReservasFinalizadas { get; set; }
+
+  
     }
 }

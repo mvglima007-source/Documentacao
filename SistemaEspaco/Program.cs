@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using SistemaEspaco.Models;
 using Microsoft.AspNetCore.Identity;
 using SistemaEspaco.Areas.Identity.Data;
+using QuestPDF.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,8 @@ builder.Services.AddScoped<ReservaService>();
 
 builder.Services.AddControllersWithViews();
 
+QuestPDF.Settings.License = LicenseType.Community;
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -43,7 +46,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// Identity precisa disso:
+
 app.UseAuthentication();
 app.UseAuthorization();
 

@@ -1,8 +1,23 @@
 {
   "dependencies": {
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "mssql2": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('serviceConnectorResourceGroupName')]/providers/Microsoft.ServiceLinker/locations/brazilsouth/connectors/ConnectionStringsconnection1_4808919602",
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/sql-reservas-app/databases/ProjetoEspaco",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:connection1",
+      "dynamicId": null
+    },
     "mssql1": {
-      "type": "mssql.local",
-      "connectionId": "ConnectionStrings:SistemaContextConnection"
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('serviceConnectorResourceGroupName')]/providers/Microsoft.ServiceLinker/locations/brazilsouth/connectors/ConnectionStringsSistemaContextConnectio_BEF6A579BE",
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/sql-reservas-app/databases/sistemacontext",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:SistemaContextConnection1",
+      "dynamicId": null
     }
   }
 }
