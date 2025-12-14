@@ -126,5 +126,5 @@ O sistema segue boas práticas de desenvolvimento, utilizando arquitetura MVC, s
 ---
 
 ## 👨‍💻 Autor
-Matheus vianA Guimarães Lima
+Matheus viana Guimarães Lima
 Projeto desenvolvido para fins acadêmicos.
